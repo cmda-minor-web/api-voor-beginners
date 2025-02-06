@@ -4,12 +4,31 @@
 // iedereen: https://fdnd.directus.app/items/person/?fields=id,name,github_handle,avatar&filter={%22squads%22:{%22squad_id%22:{%22name%22:%22Minor%20Web%20Dev%22}}}&sort=name
 
 const baseURL = 'https://fdnd.directus.app/';
-const endpointMe = 'items/person/67';
+const endpointMe = 'items/person/219';
+
+//Get complete url from the data you want
+const myURL = baseURL + endpointMe;
+
+console.log(myURL);
+
+//Call function " getData" for the data you need
+getData(myURL).then( data219 => {
+
+	//Fill wanted data in variables
+	let myName = data219.data.name;
+	let myBirthday = data219.data.birthdate;
+	
+	//Find the needed sections in the html code
+	let mainH1 = document.querySelector("h1");
+	let subline = document.querySelector("h2");
+
+	//Fill the h1 with the given name
+	mainH1.textContent = myName;
+	subline.textContent = myBirthday;
 
 
-
-
-
+	console.log(data219.data);
+} );
 
 
 

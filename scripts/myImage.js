@@ -1,8 +1,26 @@
+const mySection = document.querySelector('section:nth-of-type(1)');
 
 
 
+getData(myURL).then( data219 => {
+
+    const myData = data219.data;
+    let myAvatar = myData.avatar;
+    let myName = myData.name;
+
+    if (!myAvatar){
+        myAvatar = "images/placeholder1.svg";
+    }
+    
+    const myImg = document.createElement("img");
 
 
+    myImg.src = myAvatar;
+    myImg.alt = myName + "'s Avatar"
+
+    mySection.append(myImg);
+    console.log(myImg);
+})
 
 
 
